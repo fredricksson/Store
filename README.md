@@ -1,2 +1,3 @@
 # Store
-Spring boot and vue,js
+Node js
+Vue js
