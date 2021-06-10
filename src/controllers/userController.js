@@ -22,7 +22,7 @@ exports.create = async (req, res) => {
 
     try {
         if( await User.findOne({username}))
-          return res.send({ error: true, status: 400, message: "Usuario existente", data: [] })
+          return res.send({ error: true, status: 400, message: "Usuario does not exist", data: [] })
         
         const user = await User.create({username, password})
         user.password = undefined
@@ -45,7 +45,7 @@ exports.authenticate = async (req, res) => {
         return res.send({ error: true, status: 400, message: "invalid fields", data: errors })
         const user = await User.findOne({ username })
     
-        if (!user) return res.send({ error: true, status: "400", message: "User exists!", data: [] })
+        if (!user) return res.send({ error: true, status: 404, message: "User not found!", data: [] })
 
         if (!await bcrypt.compare(password, user.password)) return res.send({ error: true, status: 400, message: "Senha invalida", data: [] })
     
