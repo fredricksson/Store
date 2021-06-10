@@ -1,0 +1,304 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "storie api.",
+    "version": "1.0.0",
+    "title": "Storie api",
+    "contact": {
+      "email": "bandefredrickson@gmail.com"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "band-countries.herokuapp.com",
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/users/": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "new user\"",
+        "description": "",
+        "operationId": "addUser",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "sucess",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/users/auth": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "authenticate",
+        "description": "",
+        "operationId": "authenticate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "sucess",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/stories": {
+      "post": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "updte country",
+        "description": "Returns a single pet",
+        "operationId": "getPetById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Country object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Story"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/StoryResponse"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          }
+        }
+      }
+    },
+    "/stories/{id}": {
+      "put": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "id is _id comming from api",
+        "description": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "value of pet to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "sucess",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StoryResponse"
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/stories#/{id}": {
+      "delete": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "id is _id comming from api",
+        "description": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "value of pet to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "sucess",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StoryResponse"
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/stories/": {
+      "get": {
+        "tags": [
+          "Stories"
+        ],
+        "summary": "id comming from api by user",
+        "description": "",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "sucess",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/StoryResponse"
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "Story": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        }
+      }
+    },
+    "StoryResponse": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "integer"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

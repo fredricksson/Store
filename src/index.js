@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
-const cors = require('cors')
-const contactRoutes = require('./routes/contactRoutes')
+const userRoutes = require('./routes/userRoutes')
+const storyRoutes = require('./routes/storyRoutes')
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-app.use(cors())
-app.use('/contacts', contactRoutes)
+
+app.use('/users', userRoutes)
+app.use('/stories', storyRoutes)
+
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, ()=> {
-    console.log('locahost:3000');
-})
+app.listen(PORT)
