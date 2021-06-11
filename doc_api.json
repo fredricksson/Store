@@ -12,7 +12,7 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "band-countries.herokuapp.com",
+  "host": "story-server-api.herokuapp.com",
   "schemes": [
     "https",
     "http"
@@ -178,11 +178,9 @@
         "summary": "id is _id comming from api",
         "description": "",
         "consumes": [
-          "application/json",
-          "application/xml"
+          "application/json"
         ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "parameters": [
@@ -199,10 +197,7 @@
           "201": {
             "description": "sucess",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/StoryResponse"
-              }
+              "$ref": "#/definitions/StoryResponse"
             }
           },
           "405": {
@@ -218,22 +213,14 @@
         ],
         "summary": "id comming from api by user",
         "description": "",
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
         "produces": [
-          "application/xml",
           "application/json"
         ],
         "responses": {
           "201": {
             "description": "sucess",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/StoryResponse"
-              }
+              "$ref": "#/definitions/StoryResponse"
             }
           },
           "405": {
@@ -257,7 +244,10 @@
           "type": "string"
         },
         "data": {
-          "type": "object"
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
         }
       }
     },
@@ -296,7 +286,10 @@
           "type": "string"
         },
         "data": {
-          "type": "object"
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
         }
       }
     }
