@@ -9,7 +9,7 @@ npm install
 ```
 
 ## create archive keys.js on root of folder src.
-if (NODE.ENV == "production") {
+```if (NODE.ENV == "production") {
 module.exports = {
     mongoDB : {
         url: 'yourUrlOnlineMongo'
@@ -22,6 +22,6 @@ module.exports = {
     }
  }
 }
-
+```
 link:
 https://story-server-api.herokuapp.com/
