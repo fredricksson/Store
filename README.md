@@ -8,7 +8,7 @@ mongoDB
 npm install
 ```
 
-## create archive keys.js on root of folder src.
+## create archive keys and set your data folder src/keys.js.
 ```
 if (NODE.ENV == "production") {
   module.exports = {
