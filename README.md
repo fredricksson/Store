@@ -24,5 +24,7 @@ if (NODE.ENV == "production") {
  }
 }
 ```
-link:
+### link of app on production:
+```
 https://story-server-api.herokuapp.com/
+```
