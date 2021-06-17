@@ -11,7 +11,7 @@ npm install
 ## create archive keys.js on root of folder src.
 ```
 if (NODE.ENV == "production") {
-module.exports = {
+  module.exports = {
     mongoDB : {
         url: 'yourUrlOnlineMongo'
     }
